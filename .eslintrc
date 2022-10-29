@@ -1,7 +1,6 @@
 {
     "extends": [
-        "react-app",
-        "react-app/jest"
+        "react-app"
     ],
     "rules": {
         "quotes": ["error", "single"],
