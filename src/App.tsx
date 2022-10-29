@@ -2,7 +2,7 @@ import {useState, useEffect} from 'react';
 
 import {Todo} from './types';
 import NewTodoForm from './components/NewTodoForm';
-import TodoItem from './components/TodoItem';
+import {TodoList} from './components/TodoList';
 import './App.css';
 
 function App() {
@@ -30,7 +30,7 @@ function App() {
             <NewTodoForm
                 handleClick={addTodo}
             />
-            <TodoItem id="112" completed={false} title="first todo" style={{border: '1px sold white'}}/>
+            <TodoList list={todos}/>
         </div>
     );
 }

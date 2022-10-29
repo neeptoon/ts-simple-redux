@@ -6,7 +6,7 @@ interface TodoItemProps extends Todo {
     style?: React.CSSProperties,
 }
 
-const TodoItem = ({id, title, completed, style = {}}: TodoItemProps) => {
+export const TodoItem = ({id, title, completed, style = {}}: TodoItemProps) => {
     return (
         <li style={style}>
             <input type="checkbox" checked={completed}/>
@@ -15,5 +15,3 @@ const TodoItem = ({id, title, completed, style = {}}: TodoItemProps) => {
         </li>
     );
 };
-
-export default TodoItem;
