@@ -17,20 +17,36 @@ function App() {
         setTodos([newTodo, ...todos]);
     };
 
-    useEffect(() => {
-        fetch('https://jsonplaceholder.typicode.com/todos')
-            .then(res => res.json())
-            .then((data: Todo[]) => {
-                setTodos(data);
-            });
-    }, []);
+    const toggleTodo = (id: Todo['id']) => {
+        setTodos(todos.map(todo => {
+            if(todo.id === id) {
+                return {...todo, completed: !todo.completed};
+            }
+            return todo;
+        }));
+        
+    };
+
+    const removeTodo = (id: Todo['id']): void => {
+        setTodos(todos.filter(todo => todo.id !== id));
+
+    };
+
+    //
+    // useEffect(() => {
+    //     fetch('https://jsonplaceholder.typicode.com/todos')
+    //         .then(res => res.json())
+    //         .then((data: Todo[]) => {
+    //             setTodos(data);
+    //         });
+    // }, []);
 
     return (
         <div className="App">
             <NewTodoForm
                 handleClick={addTodo}
             />
-            <TodoList list={todos}/>
+            <TodoList list={todos} toggleTodo={toggleTodo} removeTodo={removeTodo}/>
         </div>
     );
 }
